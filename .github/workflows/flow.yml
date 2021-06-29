@@ -8,12 +8,16 @@ jobs:
   flow:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: jjst/action-digitalocean-deploy-app@v2
+    - uses: actions/checkout@master
+    - name: Github Ci/CD
+      uses: appleboy/scp-action@master
       with:
-        token: 501a25886a810310ab987534f266ac9251e6d73094fe820097f6dc90cc9a38dc
-      name: Deploy to DigitalOcean
+        host: ${{secrets.HOST}}
+        username: ${{secrets.USERNAME}}
+        password: ${{secrets.PASSWORD}}
+        port: ${{secrets.PORT}}
+        source: /
+        target: "/nodex"
     - run: npm install
-      name: Build and Run Backend
-    
+      name: Finalize CI/CD
   
