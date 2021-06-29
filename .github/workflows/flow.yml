@@ -22,7 +22,7 @@ jobs:
         password: ${{secrets.PASSWORD}}
         port: ${{secrets.PORT}}
         source: "deploy.tar"
-        target: "/nodex"
+        target: "~/nodex"
     - run: npm install
       name: Finalize CI/CD
   
