@@ -21,6 +21,8 @@ jobs:
         username: ${{secrets.USERNAME}}
         password: ${{secrets.PASSWORD}}
         port: ${{secrets.PORT}}
+        timeout: 5m
+        command_timeout: 20m
         source: "deploy.tar"
         target: "~/nodex"
     - run: npm install
