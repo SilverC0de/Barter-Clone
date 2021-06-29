@@ -1,0 +1,19 @@
+name: Digital Ocean CI/CD
+on:
+  push:
+    branches: [master]
+  
+  
+jobs:
+  flow:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: jjst/action-digitalocean-deploy-app@v2
+      with:
+        token: ijgfi
+      name: Deploy to DigitalOcean
+    - run: npm install
+      name: Build and Run Backend
+    
+  
