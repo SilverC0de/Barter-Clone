@@ -12,6 +12,7 @@ jobs:
     - name: Copy folder content recursively to remote
       uses: garygrossgarten/github-action-scp@release
       with:
+        local: asset
         remote: usr/share/nginx/html
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
